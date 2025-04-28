@@ -429,3 +429,14 @@ typedef struct record
       } Rec_Type, *Rec_Pointer;
 
 
+void Proc_1();
+void Proc_2();
+void Proc_3();
+void Proc_4();
+void Proc_5();
+void Proc_6();
+void Proc_7();
+void Proc_8();
+
+Enumeration Func_1 (Ch_1_Par_Val, Ch_2_Par_Val);
+Boolean Func_2 (Str_1_Par_Ref, Str_2_Par_Ref);
