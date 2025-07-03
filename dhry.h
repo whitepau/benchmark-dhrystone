@@ -354,10 +354,10 @@
                 /* explicitly defined otherwise         */
 
 #ifdef MSC_CLOCK
-#undef HZ
-#undef TIMES
+// #undef HZ
+// #undef TIMES
 #include <time.h>
-#define HZ	CLK_TCK
+// #define HZ	CLK_TCK
 #endif
 		/* Use Microsoft C hi-res clock */
 
