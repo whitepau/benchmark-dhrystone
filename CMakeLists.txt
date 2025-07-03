@@ -11,18 +11,22 @@ set(BUILD_TESTS OFF)
 # library dir
 get_filename_component(LIBRARY_DIR "../baremetal-drivers" ABSOLUTE)
 
-# library project
-add_subdirectory(${LIBRARY_DIR} alterametal)
+if(NOT FORCE_x86-64)
 
-# linker script
-set(ALTERAMETAL_LINKER_SCRIPT "${LIBRARY_DIR}/build/aarch64/core0.ld")
+    # library project
+    add_subdirectory(${LIBRARY_DIR} alterametal)
+
+    # linker script
+    set(ALTERAMETAL_LINKER_SCRIPT "${LIBRARY_DIR}/build/aarch64/core0.ld")
+
+endif()
 
 #################
 # Define project
 #################
 
 project(${APP_NAME})
-add_compile_options(-DHZ=60 -DDHRY_ITERS=20000000)
+add_compile_options(${USER_COMPILE_FLAGS})
 
 add_executable(${EXE_FILENAME})
 target_sources(${EXE_FILENAME}
@@ -30,13 +34,17 @@ target_sources(${EXE_FILENAME}
         ${USER_COMPILE_SOURCES}
 )
 
-# link to the baremetal library
-target_link_libraries(${EXE_FILENAME} PRIVATE
-    alterametal
-)
+if(NOT FORCE_x86-64)
 
-# specify linker script
-target_link_options(${EXE_FILENAME} PRIVATE
-    -T${ALTERAMETAL_LINKER_SCRIPT}
-    --specs=nosys.specs -mstrict-align
-)
+    # link to the baremetal library
+    target_link_libraries(${EXE_FILENAME} PRIVATE
+        alterametal
+    )
+
+    # specify linker script
+    target_link_options(${EXE_FILENAME} PRIVATE
+        -T${ALTERAMETAL_LINKER_SCRIPT}
+        --specs=nosys.specs -mstrict-align
+    )
+
+endif()

@@ -438,5 +438,6 @@ void Proc_6();
 void Proc_7();
 void Proc_8();
 
-Enumeration Func_1 (Ch_1_Par_Val, Ch_2_Par_Val);
-Boolean Func_2 (Str_1_Par_Ref, Str_2_Par_Ref);
+Enumeration Func_1 (Capital_Letter Ch_1_Par_Val, Capital_Letter Ch_2_Par_Val);
+Boolean Func_2 (Str_30 Str_1_Par_Ref, Str_30 Str_2_Par_Ref);
+Boolean Func_3 (Enumeration Enum_Par_Val);

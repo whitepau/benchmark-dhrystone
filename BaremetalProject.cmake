@@ -21,3 +21,8 @@ set(
     "dhry_2.c"
 )
 
+set (
+    USER_COMPILE_FLAGS
+    "-O3;-DTIME;-DNOENUM;-DHZ=60;-DDHRY_ITERS=200000000"
+)
+

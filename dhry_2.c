@@ -16,6 +16,7 @@
  */
 
 #include "dhry.h"
+#include <string.h>
 
 #ifndef REG
 #define REG
@@ -174,11 +175,10 @@ Str_30  Str_2_Par_Ref;
 } /* Func_2 */
 
 
-Boolean Func_3 (Enum_Par_Val)
+Boolean Func_3 (Enumeration Enum_Par_Val)
 /***************************/
     /* executed once        */
     /* Enum_Par_Val == Ident_3 */
-Enumeration Enum_Par_Val;
 {
   Enumeration Enum_Loc;
 
